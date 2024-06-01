@@ -15,26 +15,16 @@ The dataset used in this project contains the following features:
 - **State**: The state in which the startup is located
 - **Profit**: The profit earned by the startup (target variable)
 
-The dataset can be found in the `data/` directory.
 
-## Project Structure
+## Files
 
-- `data/`: Contains the dataset file(s).
-  - `startup_data.csv`: The raw dataset
-  - `preprocessed_startup_data.csv`: The preprocessed dataset
-- `notebooks/`: Jupyter notebooks for data preprocessing and model training.
-  - `data_preprocessing.ipynb`: Notebook for data preprocessing
-  - `model_training.ipynb`: Notebook for model training and evaluation
-- `src/`: Source code for data preprocessing and model training.
-  - `data_preprocessing.py`: Script for data preprocessing
-  - `model_training.py`: Script for model training and evaluation
+- `data.csv`: Contains the dataset file(s).
+- `data_preprocessing.py`: Script for data preprocessing
+- `model_training.py`: Script for model training and evaluation
 - `README.md`: Project overview and instructions
-- `requirements.txt`: List of required Python packages
 - `LICENSE`: License information
 
-## Getting Started
 
 ### Prerequisites
-
 - Python 3.7+
 - Jupyter Notebook
