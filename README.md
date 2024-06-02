@@ -18,9 +18,8 @@ The dataset used in this project contains the following features:
 
 ## Files
 
-- `data.csv`: Contains the dataset file(s).
-- `data_preprocessing.py`: Script for data preprocessing
-- `model_training.py`: Script for model training and evaluation
+- `startup_data.csv`: Contains the dataset file(s).
+- `startup_success_prediction.py`: Script for model training and evaluation
 - `README.md`: Project overview and instructions
 - `LICENSE`: License information
 
