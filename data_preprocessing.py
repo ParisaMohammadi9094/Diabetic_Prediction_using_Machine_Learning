@@ -5,7 +5,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 
 # Load data
-data = pd.read_csv('data/startup_data.csv')
+data = pd.read_csv('data.csv')
 
 # Define preprocessing steps
 numeric_features = ['funding_amount', 'team_size', 'revenue', 'profit']
