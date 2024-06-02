@@ -1,29 +1,22 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+from sklearn.datasets import load_diabetes
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
-# Load the dataset
-data = pd.read_csv('startup_data.csv')  # Replace with the path to your dataset
+# Load the diabetes dataset
+diabetes = load_diabetes()
+data = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
+data['target'] = diabetes.target
 
-# Explore the data
+# Check the first few rows of the dataset
 print(data.head())
-print(data.describe())
 
-# Check for missing values
-print(data.isnull().sum())
-
-# Preprocess the data
-# Assume the dataset has columns: 'R&D Spend', 'Administration', 'Marketing Spend', 'State', and 'Profit'
-# One-hot encode the 'State' column
-data = pd.get_dummies(data, columns=['State'], drop_first=True)
-
-# Define the features and the target variable
-X = data.drop('Profit', axis=1)
-y = data['Profit']
+# Define the features (X) and the target variable (y)
+X = data.drop('target', axis=1)
+y = data['target']
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -47,13 +40,5 @@ plt.scatter(y_test, y_pred, edgecolors=(0, 0, 0))
 plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'k--', lw=2)
 plt.xlabel('Measured')
 plt.ylabel('Predicted')
-plt.title('Measured vs Predicted Profit')
-plt.show()
-
-# Visualize feature importance
-feature_importance = pd.Series(model.coef_, index=X.columns)
-feature_importance.nlargest(10).plot(kind='barh')
-plt.xlabel('Coefficient Value')
-plt.ylabel('Feature')
-plt.title('Feature Importance')
+plt.title('Measured vs Predicted')
 plt.show()
